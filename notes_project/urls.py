@@ -19,5 +19,6 @@ from notes import views as notes_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('author/<int:author_id>/', notes_views.author_view),
     path('', notes_views.index_view),
 ]
