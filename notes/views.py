@@ -16,3 +16,9 @@ def author_view(request, author_id):
     "author": author,
     "notes": notes,
   })
+
+def detail_view(request, note_id):
+  note = get_object_or_404(Note, id=note_id)
+  return render(request, "notes/detail.html", {
+    "note": note,
+  })
