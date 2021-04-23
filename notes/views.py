@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
 
 from .models import Note
 
@@ -9,7 +10,9 @@ def index_view(request):
   })
 
 def author_view(request, author_id):
+  author = get_object_or_404(User, id=author_id)
   notes = Note.objects.filter(author_id=author_id).order_by("-id")
-  return render(request, "notes/index.html", {
+  return render(request, "notes/author_list.html", {
+    "author": author,
     "notes": notes,
   })
