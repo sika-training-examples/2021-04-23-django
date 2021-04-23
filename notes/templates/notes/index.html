@@ -3,5 +3,9 @@
 <div>
   <h2>{{note.author}}: {{note.title}}</h2>
   <p>{{note.text}}</p>
+  <p>
+    <a href="/author/{{note.author.id}}">Notes by: {{note.author}}</a>
+    <a href="/note/{{note.id}}">Detail</a>
+  </p>
 </div>
 {% endfor %}
